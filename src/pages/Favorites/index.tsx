@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
 import styles from './styles';
@@ -10,6 +10,8 @@ import { useFocusEffect } from '@react-navigation/native';
 const Favorites: React.FC = () => {
   const [favorites, setFavorites] = useState([]);
   
+  const isMountedRef = useRef(false);
+
   const loadFavorites = () => {
     AsyncStorage.getItem('favorites').then(response => {
       if(response) {
@@ -21,7 +23,12 @@ const Favorites: React.FC = () => {
   }
   
   useFocusEffect(() => {
-    loadFavorites();
+    isMountedRef.current = true;
+    if(isMountedRef.current ) {
+      loadFavorites();
+    }
+
+    () => isMountedRef.current = false;
   });
 
   return (
