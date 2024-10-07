@@ -45,7 +45,7 @@
  - Install the dependencies by: `$ yarn install`.
  - If you want to run into your physical phone, then install Expo app into it.
  - Run `$ yarn start` wait for the browser open, scan the QRCode with Expo app.
- - On the odther hand, if you wnat to run into a simulator, click on `run on IOS simulator` or `run on Android simulator`.
+ - On the other hand, if you want to run into a simulator, click on `run on IOS simulator` or `run on Android simulator`.
 
 # 📌 Techs
 
